@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import reactCSS from 'reactcss'
-import map from 'lodash/map'
 import color from '../../helpers/color'
 
 import { ColorWrap, Raised } from '../common'
@@ -42,7 +41,7 @@ export const Compact = ({ onChange, onSwatchHover, colors, hex, rgb, className =
     <Raised style={ styles.Compact }>
       <div style={ styles.compact } className={ `compact-picker ${ className }` }>
         <div>
-          { map(colors, c => (
+          { colors.map(c => (
             <CompactColor
               key={ c }
               color={ c }

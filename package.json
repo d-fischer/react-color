@@ -42,10 +42,12 @@
     "popup"
   ],
   "dependencies": {
-    "lodash": "^4.17.5",
+    "debounce": "^1.2.0",
+    "deep-equal": "^1.0.1",
     "material-colors": "^1.2.1",
     "prop-types": "^15.5.10",
     "reactcss": "^1.2.3",
+    "throttle.js": "^1.0.1",
     "tinycolor2": "^1.4.1"
   },
   "devDependencies": {

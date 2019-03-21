@@ -1,7 +1,7 @@
 // @flow
 /* eslint-disable no-invalid-this, react/sort-comp */
 import React, { type Node } from 'react'
-import _ from 'lodash'
+import isEqual from 'deep-equal'
 
 // https://github.com/react-component/slider/blob/a5853d130ef0df8c86c3be926bc896610126fcab/src/common/createSlider.jsx
 
@@ -79,8 +79,8 @@ class DraggableRegion extends React.Component<Props, State> {
     const { width, height, left, top } =
       captureClientRect && this.region ? this.region.getBoundingClientRect() : this.state
 
-    const insideTop = _.clamp(pageY - top, height)
-    const insideLeft = _.clamp(pageX - left, width)
+    const insideTop = Math.min(pageY - top, height)
+    const insideLeft = Math.min(pageX - left, width)
     const x = Number((insideLeft / width).toFixed(4)) || 0
     const y = Number((insideTop / height).toFixed(4)) || 0
 
@@ -96,7 +96,7 @@ class DraggableRegion extends React.Component<Props, State> {
       y,
     }
 
-    if (_.isEqual(this.state, change) === false) {
+    if (!isEqual(this.state, change)) {
       this.setState(change)
       onChange(change)
     }

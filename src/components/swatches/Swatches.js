@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import reactCSS from 'reactcss'
-import map from 'lodash/map'
 import color from '../../helpers/color'
 import * as material from 'material-colors'
 
@@ -41,7 +40,7 @@ export const Swatches = ({ width, height, onChange, onSwatchHover, colors, hex,
       <Raised>
         <div style={ styles.overflow }>
           <div style={ styles.body }>
-            { map(colors, group => (
+            { colors.map(group => (
               <SwatchesGroup
                 key={ group.toString() }
                 group={ group }

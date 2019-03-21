@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import reactCSS from 'reactcss'
-import map from 'lodash/map'
 import color from '../../helpers/color'
 
 import { ColorWrap, EditableInput, Swatch } from '../common'
@@ -123,7 +122,7 @@ export const Twitter = ({ onChange, onSwatchHover, hex, colors, width, triangle,
       <div style={ styles.triangle } />
 
       <div style={ styles.body }>
-        { map(colors, (c, i) => {
+        { colors.map((c, i) => {
           return (
             <Swatch
               key={ i }
